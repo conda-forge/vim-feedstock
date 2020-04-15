@@ -1,5 +1,5 @@
 {% set name = "vim" %}
-{% set version = "8.2.0579" %}
+{% set version = "8.2.0582" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/vim/vim/archive/v{{ version }}.tar.gz
-  sha256: 0d57953b420e1e34081fa27cab681f46cb1695668ca777ee6bdda85172a8a5a8
+  sha256: a1a6e9fdc58e423bf437217f1ffca7a6235ce8a5a5a41a55d137346d9ce47f75
 
 build:
   skip: true  # [win]
