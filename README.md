@@ -5,7 +5,7 @@ Home: https://www.vim.org/
 
 Package license: OTHER
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Vim is a greatly improved version of the good old UNIX editor Vi
 
