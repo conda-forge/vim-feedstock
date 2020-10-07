@@ -5,11 +5,11 @@ Home: https://www.vim.org/
 
 Package license: OTHER
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/vim-feedstock/blob/master/LICENSE.txt)
 
 Summary: Vim is a greatly improved version of the good old UNIX editor Vi
 
-
+Development: https://github.com/vim/vim
 
 Current build status
 ====================
