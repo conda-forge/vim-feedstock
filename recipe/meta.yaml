@@ -20,10 +20,10 @@ requirements:
     - vs2017_{{ target_platform }}  # [win]
     - make
   host:
-    - python
+    - python  # [not win]
     - ncurses  # [not win]
   run:
-    - python
+    - python  # [not win]
     - ncurses  # [not win]
 
 test:
