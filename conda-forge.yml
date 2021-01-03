@@ -1,3 +1,7 @@
 bot:
   automerge: true
 conda_forge_output_validation: true
+provider:
+  linux: azure
+  osx: azure
+  win: azure
