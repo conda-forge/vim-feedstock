@@ -1,0 +1,8 @@
+channel_sources:
+- conda-forge,defaults
+channel_targets:
+- conda-forge main
+python_impl:
+- cpython
+target_platform:
+- win-64
