@@ -15,8 +15,8 @@ build:
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
     - vs2017_{{ target_platform }}  # [win]
     - make
   host:
@@ -43,3 +43,4 @@ extra:
     - mariusvniekerk
     - scopatz
     - asford
+    
