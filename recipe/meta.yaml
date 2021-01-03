@@ -19,10 +19,10 @@ requirements:
     - {{ compiler('cxx') }}
     - make
   host:
-    - python  # [not win]
+    - python # [not win]
     - ncurses # [not win]
   run:
-    - python  # [not win]
+    - python # [not win]
     - ncurses # [not win]
 
 test:
