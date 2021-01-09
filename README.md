@@ -43,18 +43,7 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-<<<<<<< HEAD
               <td>linux_64_python3.8.____cpythonpython_implcpython</td>
-=======
-              <td>linux_64_python3.7.____73_pypy</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6227&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/vim-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.7.____73_pypy" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>linux_64_python3.7.____cpython</td>
->>>>>>> upstream/master
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6227&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/vim-feedstock?branchName=master&jobName=linux&configuration=linux_64_python3.8.____cpythonpython_implcpython" alt="variant">
@@ -89,18 +78,7 @@ Current build status
                 </a>
               </td>
             </tr><tr>
-<<<<<<< HEAD
               <td>osx_64_python3.9.____cpythonpython_implcpython</td>
-=======
-              <td>osx_64_python3.7.____73_pypy</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6227&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/vim-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.7.____73_pypy" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_python3.7.____cpython</td>
->>>>>>> upstream/master
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6227&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/vim-feedstock?branchName=master&jobName=osx&configuration=osx_64_python3.9.____cpythonpython_implcpython" alt="variant">
