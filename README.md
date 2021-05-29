@@ -3,7 +3,7 @@ About vim
 
 Home: https://www.vim.org/
 
-Package license: OTHER
+Package license: Vim
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/vim-feedstock/blob/master/LICENSE.txt)
 
