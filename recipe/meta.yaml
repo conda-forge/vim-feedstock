@@ -10,20 +10,21 @@ source:
   sha256: c81fd117d0b8c581a7e7f906a436a4a555ebde820b5674ea9536df7566208b14
 
 build:
-  skip: true  # [win]
-  number: 0
+  number: 1
+  skip: True  # [py < 36 or python_impl == 'pypy']
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
+    - vs2017_{{ target_platform }}  # [win]
     - make
   host:
-    - python
-    - ncurses
+    - python  # [not win]
+    - ncurses  # [not win]
   run:
-    - python
-    - ncurses
+    - python  # [not win]
+    - ncurses  # [not win]
 
 test:
   commands:
