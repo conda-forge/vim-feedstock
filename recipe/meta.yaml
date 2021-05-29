@@ -29,7 +29,6 @@ requirements:
 test:
   commands:
     - vim --version
-    - gvim --version  # [win]
 
 about:
   home: https://www.vim.org/
