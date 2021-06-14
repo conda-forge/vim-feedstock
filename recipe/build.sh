@@ -18,5 +18,5 @@ fi
             --enable-cscope     \
             $PYTHONINTERP  || { cat src/auto/config.log; exit 1; }
 
-make
+make -j$CPU_COUNT
 make install
