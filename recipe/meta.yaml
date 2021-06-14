@@ -10,20 +10,21 @@ source:
   sha256: 64dc8003d7b41250e9f70aac1b0e8eda36dd925349b19eacf373b204fe42b74f
 
 build:
-  skip: true  # [win]
-  number: 0
+  number: 1
+  skip: True  # [py < 36 or python_impl == 'pypy']
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ compiler('cxx') }}
+    - {{ compiler('c') }}  # [not win]
+    - {{ compiler('cxx') }}  # [not win]
+    - vs2017_{{ target_platform }}  # [win]
     - make
   host:
-    - python
-    - ncurses
+    - python  # [not win]
+    - ncurses  # [not win]
   run:
-    - python
-    - ncurses
+    - python  # [not win]
+    - ncurses  # [not win]
 
 test:
   commands:
@@ -32,7 +33,7 @@ test:
 about:
   home: https://www.vim.org/
   # vi(m) is licensed as charity-ware
-  license: OTHER
+  license: Vim
   license_file: runtime/doc/uganda.txt
   summary: Vim is a greatly improved version of the good old UNIX editor Vi
   dev_url: https://github.com/vim/vim
