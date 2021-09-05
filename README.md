@@ -285,5 +285,6 @@ Feedstock Maintainers
 
 * [@asford](https://github.com/asford/)
 * [@mariusvniekerk](https://github.com/mariusvniekerk/)
+* [@matthiasdiener](https://github.com/matthiasdiener/)
 * [@scopatz](https://github.com/scopatz/)
 
