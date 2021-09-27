@@ -8,6 +8,10 @@ else
   PYTHONINTERP="--enable-pythoninterp=yes --enable-python3interp=no"
 fi
 
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" != "1" ]]; then
+  export vim_cv_toupper_broken="set"
+fi
+
 
 ./configure --prefix=$PREFIX    \
             --without-x         \
