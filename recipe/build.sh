@@ -10,6 +10,7 @@ fi
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" ]]; then
   export vim_cv_toupper_broken=yes
+  export CPPFLAGS="-I${PREFIX}/include -L${PREFIX}/lib -Wl,-rpath-link,${PREFIX}/lib"
 fi
 
 
