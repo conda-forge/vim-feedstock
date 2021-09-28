@@ -8,7 +8,7 @@ else
   PYTHONINTERP="--enable-pythoninterp=yes --enable-python3interp=no"
 fi
 
-if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && $(uname -m) == "arm64" ]]; then
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-arm64" ]]; then
   export vim_cv_toupper_broken=no
 fi
 
