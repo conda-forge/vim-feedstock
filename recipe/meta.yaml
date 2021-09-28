@@ -10,8 +10,7 @@ source:
   sha256: 9150b55a4e5cc538ff04c71dc4f7219b838f6b9c884bebada426b5cca1e3b625
 
 build:
-  skip: true  # [win]
-  number: 2
+  number: 3
 
 requirements:
   build:
@@ -20,10 +19,10 @@ requirements:
     - make
   host:
     - python
-    - ncurses
+    - ncurses  # [not win]
   run:
     - python
-    - ncurses
+    - ncurses  # [not win]
 
 test:
   commands:
