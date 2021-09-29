@@ -13,6 +13,8 @@ else
 fi
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-arm64" ]]; then
+  # Need to set these explicitly for osx-arm64 since they can't be checked
+  # automatically when cross-compiling.
   export vim_cv_toupper_broken=no
   export vim_cv_terminfo=yes
   export vim_cv_tgetent=non-zero
