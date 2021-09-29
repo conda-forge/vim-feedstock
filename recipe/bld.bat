@@ -21,6 +21,6 @@ nmake -f Make_dos.mak VIMPROG=..\vim
 cd %SRC_DIR%\\src\\
 copy vim.exe %LIBRARY_BIN%
 
-xcopy ..\\runtime %LIBRARY_PREFIX%\\vim\\runtime /Y /E /V /I /H /R /Q
+xcopy ..\\runtime %LIBRARY_BIN% /Y /E /V /I /H /R /Q
 if errorlevel 1 exit 1
 
