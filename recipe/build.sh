@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -ex
+
 # For some reason vim doesn't use standard CFLAGS for OSDEF
 # https://github.com/vim/vim/blob/5fd0f5052f9a312bb4cfe7b4176b1211d45127ee/src/Makefile#L1478
 export EXTRA_IPATHS="-I$PREFIX/include"
