@@ -15,6 +15,10 @@ fi
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-arm64" ]]; then
   export vim_cv_toupper_broken=no
   export vim_cv_terminfo=yes
+  export vim_cv_tgetent=non-zero
+  export vim_cv_getcwd_broken=no
+  export vim_cv_stat_ignores_slash=no
+  export vim_cv_memmove_handles_overlap=yes
   export TERM_LIB='--with-tlib=ncurses -ltinfo'
 fi
 
