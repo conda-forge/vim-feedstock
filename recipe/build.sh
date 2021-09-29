@@ -10,6 +10,7 @@ fi
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-arm64" ]]; then
   export vim_cv_toupper_broken=yes
+  export TERM_LIB="-lncurses -ltinfo"
 fi
 
 
@@ -20,7 +21,8 @@ fi
             --without-local-dir \
             --enable-gui=no     \
             --enable-cscope     \
-            $PYTHONINTERP  || { cat src/auto/config.log; exit 1; }
+            $PYTHONINTERP       \
+            $TERM_LIB || { cat src/auto/config.log; exit 1; }
 
 make -j$CPU_COUNT
 make install
