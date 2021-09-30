@@ -7,7 +7,7 @@ nmake -f Make_mvc.mak ^
 		GUI=no OLE=no DIRECTX=no ^
 		FEATURES=HUGE IME=yes MBYTE=yes ICONV=yes DEBUG=no ^
 		TERMINAL=yes ^
-		VIMRUNTIMEDIR=%LIBRARY_PREFIX%\\vim\\runtime
+		DYNAMIC_PYTHON3=yes PYTHON3=%BUILD_PREFIX%
 
 if errorlevel 1 exit 1
 
