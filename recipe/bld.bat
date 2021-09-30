@@ -7,7 +7,7 @@ nmake -f Make_mvc.mak ^
 		GUI=no OLE=no DIRECTX=no ^
 		FEATURES=HUGE IME=yes MBYTE=yes ICONV=yes DEBUG=no ^
 		TERMINAL=yes ^
-		DYNAMIC_PYTHON3=yes PYTHON3=%BUILD_PREFIX%
+		DYNAMIC_PYTHON3=yes PYTHON3=%LIBRARY_PREFIX%
 
 if errorlevel 1 exit 1
 
