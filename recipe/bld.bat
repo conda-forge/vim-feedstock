@@ -1,7 +1,11 @@
 echo on
 
 
+echo %PYTHON%
+
 path
+
+dir %LIBRARY_INC%
 
 :: Build
 set INCLUDE=%LIBRARY_INC%;%INCLUDE%
