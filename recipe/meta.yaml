@@ -1,6 +1,5 @@
 {% set name = "vim" %}
 {% set version = "8.2.3427" %}
-{% set PYTHON3_VER = "{}{}".format(PY_VER[0], PY_VER[1]) %}
 
 package:
   name: {{ name|lower }}
@@ -12,8 +11,6 @@ source:
 
 build:
   number: 4
-  script_env:
-   - PYTHON3_VER  # [win]
 
 requirements:
   build:
