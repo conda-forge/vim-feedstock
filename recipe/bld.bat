@@ -5,10 +5,10 @@ echo %PYTHON%
 
 path
 
-dir %LIBRARY_INC%
+dir %PREFIX%\\include
 
 :: Build
-set INCLUDE=%LIBRARY_INC%;%INCLUDE%
+set INCLUDE=%PREFIX%\\include;%INCLUDE%
 cd %SRC_DIR%\\src
 nmake -f Make_mvc.mak ^
 		GUI=no OLE=no DIRECTX=no ^
