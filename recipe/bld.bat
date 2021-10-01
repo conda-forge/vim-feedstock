@@ -6,7 +6,7 @@ set INCLUDE=%PREFIX%\\include;%INCLUDE%
 :: Unset %PYTHON% so that the build does not think we want Python2 support
 set PYTHON=
 
-set PYTHON3_VER=%PYTHON3_VER
+set PYTHON3_VER=%PYTHON3_VER%
 
 set
 
