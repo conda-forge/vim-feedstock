@@ -1,19 +1,18 @@
 echo on
 
 :: Build
-
+set INCLUDE=%LIBRARY_INC%;%INCLUDE%
 cd %SRC_DIR%\\src
 nmake -f Make_mvc.mak ^
 		GUI=no OLE=no DIRECTX=no ^
 		FEATURES=HUGE IME=yes MBYTE=yes ICONV=yes DEBUG=no ^
 		TERMINAL=yes ^
-		DYNAMIC_PYTHON3=yes PYTHON3=%LIBRARY_PREFIX%
+		DYNAMIC_PYTHON3=yes PYTHON3=%PREFIX%
 
 if errorlevel 1 exit 1
 
 
 :: Test
-
 cd %SRC_DIR%\\src\\testdir
 nmake -f Make_dos.mak VIMPROG=..\vim
 
