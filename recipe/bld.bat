@@ -1,11 +1,10 @@
 echo on
 
-
 :: Build
 set INCLUDE=%PREFIX%\\include;%INCLUDE%
-set PYTHON=
 
-set
+:: Unset %PYTHON% so that the build does not think we want Python2 support
+set PYTHON=
 
 cd %SRC_DIR%\\src
 nmake -f Make_mvc.mak ^
@@ -16,9 +15,11 @@ nmake -f Make_mvc.mak ^
 
 if errorlevel 1 exit 1
 
+
 :: Test
 cd %SRC_DIR%\\src\\testdir
 nmake -f Make_dos.mak VIMPROG=..\vim
+
 
 :: Install
 cd %SRC_DIR%\\src\\
