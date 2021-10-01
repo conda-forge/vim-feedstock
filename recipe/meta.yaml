@@ -12,6 +12,8 @@ source:
 
 build:
   number: 4
+  script_env:
+   - PYTHON3_VER  # [win]
 
 requirements:
   build:
