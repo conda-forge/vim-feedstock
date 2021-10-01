@@ -1,14 +1,9 @@
 echo on
 
 
-echo %PYTHON%
-
-path
-
-dir %PREFIX%\\include
-
 :: Build
 set INCLUDE=%PREFIX%\\include;%INCLUDE%
+set PYTHON=
 cd %SRC_DIR%\\src
 nmake -f Make_mvc.mak ^
 		GUI=no OLE=no DIRECTX=no ^
@@ -18,7 +13,6 @@ nmake -f Make_mvc.mak ^
 		PYTHON=
 
 if errorlevel 1 exit 1
-
 
 :: Test
 cd %SRC_DIR%\\src\\testdir
