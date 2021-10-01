@@ -1,5 +1,8 @@
 echo on
 
+
+path
+
 :: Build
 set INCLUDE=%LIBRARY_INC%;%INCLUDE%
 cd %SRC_DIR%\\src
