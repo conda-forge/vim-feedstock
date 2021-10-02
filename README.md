@@ -11,6 +11,8 @@ Summary: Vim is a greatly improved version of the good old UNIX editor Vi
 
 Development: https://github.com/vim/vim
 
+Documentation: https://www.vim.org/docs.php
+
 Current build status
 ====================
 
