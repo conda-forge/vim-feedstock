@@ -10,7 +10,6 @@ source:
   sha256: e60641fe62c3cc47d4ff6df38357622369ccfda3dfadbd178a5861cf88c0d9ca
 
 build:
-  skip: true  # [win]
   number: 0
 
 requirements:
@@ -22,10 +21,10 @@ requirements:
     - make
   host:
     - python
-    - ncurses
+    - ncurses  # [not win]
   run:
     - python
-    - ncurses
+    - ncurses  # [not win]
 
 test:
   commands:
@@ -38,6 +37,7 @@ about:
   license_file: runtime/doc/uganda.txt
   summary: Vim is a greatly improved version of the good old UNIX editor Vi
   dev_url: https://github.com/vim/vim
+  doc_url: https://www.vim.org/docs.php
 
 extra:
   recipe-maintainers:
