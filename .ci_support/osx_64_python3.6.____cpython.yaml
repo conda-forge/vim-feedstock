@@ -16,9 +16,13 @@ macos_machine:
 - x86_64-apple-darwin13.4.0
 ncurses:
 - '6.2'
+perl:
+- 5.26.2
 pin_run_as_build:
   ncurses:
     max_pin: x.x
+  perl:
+    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x

@@ -33,6 +33,7 @@ fi
             --enable-gui=no     \
             --enable-cscope     \
             $PYTHONINTERP       \
+             --enable-perlinterp=yes \
             "$TERM_LIB" || { cat src/auto/config.log; exit 1; }
 
 make -j$CPU_COUNT
