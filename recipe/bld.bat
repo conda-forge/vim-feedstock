@@ -5,7 +5,7 @@ echo on
 :: Build
 set INCLUDE=%PREFIX%\\include;%INCLUDE%
 
-:: Unset %PYTHON% so that the build does not think we want Python2 support
+:: Unset %PYTHON% so that vim's build system does not think we want Python2 support
 set PYTHON=
 
 :: Remove dot from PY_VER for PYTHON3_VER
