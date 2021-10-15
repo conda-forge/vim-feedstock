@@ -11,6 +11,9 @@ ls -l $PREFIX/lib/5.26.2/
 ls -l $PREFIX/lib/5.26.2/darwin-thread-multi-2level/
 ls -l $PREFIX/lib/5.26.2/darwin-thread-multi-2level/CORE
 
+ls -l /System/Library/Perl
+ls -l /System/Library/Perl/5.8.1
+
 if [ "$PY3K" -eq "1" ]; then
   PYTHONINTERP="--enable-pythoninterp=no --enable-python3interp=yes"
 else
@@ -29,6 +32,10 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-ar
   export TERM_LIB='--with-tlib=ncurses -ltinfo'
 fi
 
+
+# if [[ $target_platform == osx-* ]]; then
+#   sed -i.bak "s,dir=/System/Library/Perl,dir=$PREFIX" configure
+# fi
 
 ./configure --prefix=$PREFIX    \
             --without-x         \
