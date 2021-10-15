@@ -7,9 +7,9 @@ set -ex
 export EXTRA_IPATHS="-I$PREFIX/include -I$PREFIX/lib/5.26.2/darwin-thread-multi-2level/CORE"
 
 ls -l $PREFIX/lib/
-ls -l $PREFIX/lib/5.32.0/
-ls -l $PREFIX/lib/5.32.0/darwin-thread-multi-2level/
-ls -l $PREFIX/lib/5.32.0/darwin-thread-multi-2level/CORE
+ls -l $PREFIX/lib/5.26.2/
+ls -l $PREFIX/lib/5.26.2/darwin-thread-multi-2level/
+ls -l $PREFIX/lib/5.26.2/darwin-thread-multi-2level/CORE
 
 if [ "$PY3K" -eq "1" ]; then
   PYTHONINTERP="--enable-pythoninterp=no --enable-python3interp=yes"
