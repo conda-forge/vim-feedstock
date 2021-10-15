@@ -13,6 +13,7 @@ ls -l $PREFIX/lib/5.26.2/darwin-thread-multi-2level/CORE
 
 ls -l /System/Library/Perl
 # ls -l /System/Library/Perl/5.8.1
+unset PERL
 
 if [ "$PY3K" -eq "1" ]; then
   PYTHONINTERP="--enable-pythoninterp=no --enable-python3interp=yes"
