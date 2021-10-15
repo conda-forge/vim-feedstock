@@ -4,15 +4,10 @@ set -ex
 
 # For some reason vim doesn't use standard CFLAGS for OSDEF
 # https://github.com/vim/vim/blob/5fd0f5052f9a312bb4cfe7b4176b1211d45127ee/src/Makefile#L1478
-export EXTRA_IPATHS="-I$PREFIX/include -I$PREFIX/lib/5.26.2/darwin-thread-multi-2level/CORE"
+export EXTRA_IPATHS="-I$PREFIX/include"
 
-ls -l $PREFIX/lib/
-ls -l $PREFIX/lib/5.26.2/
-ls -l $PREFIX/lib/5.26.2/darwin-thread-multi-2level/
-ls -l $PREFIX/lib/5.26.2/darwin-thread-multi-2level/CORE
-
-ls -l /System/Library/Perl
-# ls -l /System/Library/Perl/5.8.1
+# unset 'PERL' so that vim's configure doesn't use /usr/bin/perl
+# cf. https://github.com/vim/vim/blob/7b5f45be2197403d631b5a3d633f6a20afdf806e/src/auto/configure#L6215
 unset PERL
 
 if [ "$PY3K" -eq "1" ]; then
@@ -33,10 +28,6 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-ar
   export TERM_LIB='--with-tlib=ncurses -ltinfo'
 fi
 
-
-# if [[ $target_platform == osx-* ]]; then
-#   sed -i.bak "s,dir=/System/Library/Perl,dir=$PREFIX" configure
-# fi
 
 ./configure --prefix=$PREFIX    \
             --without-x         \
