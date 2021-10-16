@@ -7,7 +7,7 @@ channel_targets:
 cxx_compiler:
 - vs2017
 perl:
-- 5.26.2
+- 5.32.1
 pin_run_as_build:
   perl:
     max_pin: x.x.x
