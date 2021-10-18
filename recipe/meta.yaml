@@ -23,10 +23,12 @@ requirements:
     - python
     - perl
     - ncurses  # [not win]
+    - gettext  # [unix]
   run:
     - python
     - perl
     - ncurses  # [not win]
+    - gettext  # [unix]
 
 test:
   commands:
