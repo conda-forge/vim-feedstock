@@ -10,7 +10,7 @@ source:
   sha256: 8fbb1f260c12265eded1b1dd7a917ae826a8a5870ba1a778a0717ed160ba0bdb
 
 build:
-  number: 3 
+  number: 4 
 
 requirements:
   build:
@@ -23,12 +23,12 @@ requirements:
     - python
     - perl
     - ncurses  # [not win]
-    - gettext  # [unix]
+    - gettext
   run:
     - python
     - perl
     - ncurses  # [not win]
-    - gettext  # [unix]
+    - gettext
 
 test:
   commands:
