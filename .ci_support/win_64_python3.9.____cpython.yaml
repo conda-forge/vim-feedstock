@@ -9,8 +9,6 @@ cxx_compiler:
 perl:
 - 5.32.1
 pin_run_as_build:
-  perl:
-    max_pin: x.x.x
   python:
     min_pin: x.x
     max_pin: x.x
