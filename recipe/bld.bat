@@ -8,6 +8,8 @@ set INCLUDE=%PREFIX%\\include;%INCLUDE%
 :: Unset %PYTHON% so that vim's build system does not think we want Python2 support
 set PYTHON=
 
+set LUA_VER=
+
 :: Remove dot from PY_VER for PYTHON3_VER
 set PYTHON3_VER=%PY_VER:.=%
 
