@@ -11,6 +11,9 @@ set PYTHON=
 :: Remove dot from PY_VER for PYTHON3_VER
 set PYTHON3_VER=%PY_VER:.=%
 
+:: Remove dot from PERL_VER
+set PERL_VER=%PERL_VER:.=%
+
 set
 
 cd %SRC_DIR%\\src

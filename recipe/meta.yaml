@@ -32,7 +32,8 @@ requirements:
 
 test:
   commands:
-    - vim --version | grep {{ version }}
+    - vim --version | grep {{ version }}  # [not win]
+    - vim --version | findstr {{ version }}  # [win]
 
 about:
   home: https://www.vim.org/
