@@ -10,7 +10,6 @@ set PYTHON=
 
 set LUA_VER=
 
-set PERL=
 :: Remove dot from PY_VER for PYTHON3_VER
 set PYTHON3_VER=%PY_VER:.=%
 
@@ -25,7 +24,6 @@ nmake -f Make_mvc.mak ^
 		FEATURES=HUGE IME=yes MBYTE=yes ICONV=yes DEBUG=no ^
 		TERMINAL=yes ^
 		DYNAMIC_PYTHON3=yes PYTHON3=%PREFIX% ^
-		DYNAMIC_PERL=yes PERL=%PREFIX% ^
 
 if errorlevel 1 exit 1
 
