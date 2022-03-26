@@ -10,6 +10,7 @@ set PYTHON=
 
 set LUA_VER=
 
+set PERL=
 :: Remove dot from PY_VER for PYTHON3_VER
 set PYTHON3_VER=%PY_VER:.=%
 
