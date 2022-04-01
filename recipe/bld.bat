@@ -13,7 +13,9 @@ set PYTHON3_VER=%PY_VER:.=%
 
 set
 
+:: Build
 cd %SRC_DIR%\\src
+
 nmake -f Make_mvc.mak ^
 		GUI=no OLE=no DIRECTX=no ^
 		FEATURES=HUGE IME=yes MBYTE=yes ICONV=yes DEBUG=no ^

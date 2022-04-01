@@ -33,8 +33,8 @@ requirements:
 test:
   commands:
     - vim --version
-    - vim --version | grep {{ version }}  # [not win]
-    - vim --version | findstr {{ version }}  # [win]
+    - vim --version | grep 8.2  # [not win]
+    - vim --version | findstr 8.2  # [win]
 
 about:
   home: https://www.vim.org/
