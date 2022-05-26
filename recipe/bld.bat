@@ -12,7 +12,7 @@ set PYTHON=
 set PYTHON3_VER=%PY_VER:.=%
 
 set PERL=
-set PERL_VER=526
+set PERL_VER=532
 
 set
 

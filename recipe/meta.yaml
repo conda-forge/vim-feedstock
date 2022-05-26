@@ -25,6 +25,7 @@ requirements:
     - perl
     - ncurses  # [not win]
     - gettext
+    # - perl-extutils-makemaker
   run:
     - python
     - perl
