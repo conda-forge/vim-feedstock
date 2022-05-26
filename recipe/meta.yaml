@@ -1,5 +1,5 @@
 {% set name = "vim" %}
-{% set version = "8.2.3457" %}
+{% set version = "8.2.3901" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/vim/vim/archive/v{{ version }}.tar.gz
-  sha256: 8fbb1f260c12265eded1b1dd7a917ae826a8a5870ba1a778a0717ed160ba0bdb
+  sha256: 12983f326e0e9c1e02a8d46224137522f6d66d7e14a56f49b5d770ac47da2941
 
 build:
   number: 0
@@ -22,10 +22,14 @@ requirements:
     - make
   host:
     - python
+    - perl
     - ncurses  # [not win]
+    - gettext
   run:
     - python
+    - perl
     - ncurses  # [not win]
+    - gettext
 
 test:
   commands:

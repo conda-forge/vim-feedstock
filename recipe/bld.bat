@@ -5,7 +5,7 @@ echo on
 :: Build
 set INCLUDE=%PREFIX%\\include;%INCLUDE%
 
-:: Unset %PYTHON% so that the build does not think we want Python2 support
+:: Unset %PYTHON% so that vim's build system does not think we want Python2 support
 set PYTHON=
 
 :: Remove dot from PY_VER for PYTHON3_VER
@@ -20,7 +20,8 @@ nmake -f Make_mvc.mak ^
 		GUI=no OLE=no DIRECTX=no ^
 		FEATURES=HUGE IME=yes MBYTE=yes ICONV=yes DEBUG=no ^
 		TERMINAL=yes ^
-		DYNAMIC_PYTHON3=yes PYTHON3=%PREFIX%
+		DYNAMIC_PYTHON3=yes PYTHON3=%PREFIX% ^
+		DYNAMIC_PERL=yes PERL=%PREFIX% ^
 
 if errorlevel 1 exit 1
 
