@@ -29,6 +29,7 @@ requirements:
 test:
   commands:
     - vim --version
+    - if not exist %LIBRARY_BIN%/vim.exe exit 1  # [win]
 
 about:
   home: https://www.vim.org/
