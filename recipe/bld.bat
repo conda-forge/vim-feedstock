@@ -12,6 +12,7 @@ set PYTHON=
 set PYTHON3_VER=%PY_VER:.=%
 
 set PERL=
+set PERL_VER=532
 
 set
 
@@ -20,7 +21,8 @@ nmake -f Make_mvc.mak ^
 		GUI=no OLE=no DIRECTX=no ^
 		FEATURES=HUGE IME=yes MBYTE=yes ICONV=yes DEBUG=no ^
 		TERMINAL=yes ^
-		DYNAMIC_PYTHON3=yes PYTHON3=%PREFIX%
+		DYNAMIC_PYTHON3=yes PYTHON3=%PREFIX% ^
+		DYNAMIC_PERL=yes PERL=%PREFIX%
 
 if errorlevel 1 exit 1
 

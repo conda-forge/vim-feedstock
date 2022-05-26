@@ -22,10 +22,14 @@ requirements:
     - make
   host:
     - python
+    - perl
     - ncurses  # [not win]
+    - gettext
   run:
     - python
+    - perl
     - ncurses  # [not win]
+    - gettext
 
 test:
   commands:
