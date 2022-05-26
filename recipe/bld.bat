@@ -11,9 +11,6 @@ set PYTHON=
 :: Remove dot from PY_VER for PYTHON3_VER
 set PYTHON3_VER=%PY_VER:.=%
 
-set PERL=
-set PERL_VER=532
-
 set
 
 cd %SRC_DIR%\\src
@@ -21,8 +18,7 @@ nmake -f Make_mvc.mak ^
 		GUI=no OLE=no DIRECTX=no ^
 		FEATURES=HUGE IME=yes MBYTE=yes ICONV=yes DEBUG=no ^
 		TERMINAL=yes ^
-		DYNAMIC_PYTHON3=yes PYTHON3=%PREFIX% ^
-		DYNAMIC_PERL=yes PERL=%PREFIX%
+		DYNAMIC_PYTHON3=yes PYTHON3=%PREFIX%
 
 if errorlevel 1 exit 1
 

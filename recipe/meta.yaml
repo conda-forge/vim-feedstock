@@ -22,13 +22,12 @@ requirements:
     - make
   host:
     - python
-    - perl
+    - perl     # [not win]
     - ncurses  # [not win]
     - gettext
-    - perl-extutils-makemaker
   run:
     - python
-    - perl
+    - perl     # [not win]
     - ncurses  # [not win]
     - gettext
 
