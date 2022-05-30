@@ -24,8 +24,8 @@ if errorlevel 1 exit 1
 
 
 :: Test
-:: cd %SRC_DIR%\\src\\testdir
-:: nmake -f Make_dos.mak VIMPROG=..\vim
+cd %SRC_DIR%\\src\\testdir
+nmake -f Make_dos.mak VIMPROG=..\vim
 
 
 :: Install
