@@ -1,0 +1,142 @@
+From 7466b1cfb2b02c4a1b1904c3f8e4e4503103512c Mon Sep 17 00:00:00 2001
+From: Matthias Diener <mdiener@illinois.edu>
+Date: Sun, 10 Jul 2022 23:24:20 -0500
+Subject: [PATCH] Revert "patch 9.0.0023: on Solaris timer_create() exists but
+ does not work"
+
+This reverts commit f2ce76a8c0290af35e434e38cfe889ed0fec4c6a.
+---
+ src/auto/configure | 36 +++++++++---------------------------
+ src/configure.ac   | 12 ++++--------
+ 2 files changed, 13 insertions(+), 35 deletions(-)
+
+diff --git a/src/auto/configure b/src/auto/configure
+index d958964ab..c53c710a6 100755
+--- a/src/auto/configure
++++ b/src/auto/configure
+@@ -13041,13 +13041,7 @@ rm -f core conftest.err conftest.$ac_objext conftest.$ac_ext
+ $as_echo_n "checking for timer_create... " >&6; }
+ save_LIBS="$LIBS"
+ LIBS="$LIBS -lrt"
+-if test "$cross_compiling" = yes; then :
+-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "cannot run test program while cross compiling
+-See \`config.log' for more details" "$LINENO" 5; }
+-else
+-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
++cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+ #include<signal.h>
+@@ -13064,25 +13058,18 @@ main ()
+ 
+   action.sigev_notify = SIGEV_THREAD;
+   action.sigev_notify_function = set_flag;
+-  if (timer_create(CLOCK_MONOTONIC, &action, &timer_id) < 0)
+-    exit(1);  // cannot create a monotonic timer
++  timer_create(CLOCK_REALTIME, &action, &timer_id);
+ 
+   ;
+   return 0;
+ }
+ _ACEOF
+-if ac_fn_c_try_run "$LINENO"; then :
++if ac_fn_c_try_link "$LINENO"; then :
+   { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes; with -lrt" >&5
+ $as_echo "yes; with -lrt" >&6; }; $as_echo "#define HAVE_TIMER_CREATE 1" >>confdefs.h
+ 
+ else
+   LIBS="$save_LIBS"
+-  if test "$cross_compiling" = yes; then :
+-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "cannot run test program while cross compiling
+-See \`config.log' for more details" "$LINENO" 5; }
+-else
+   cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+ /* end confdefs.h.  */
+ 
+@@ -13100,14 +13087,13 @@ main ()
+ 
+     action.sigev_notify = SIGEV_THREAD;
+     action.sigev_notify_function = set_flag;
+-    if (timer_create(CLOCK_MONOTONIC, &action, &timer_id) < 0)
+-      exit(1);  // cannot create a monotonic timer
++    timer_create(CLOCK_REALTIME, &action, &timer_id);
+ 
+   ;
+   return 0;
+ }
+ _ACEOF
+-if ac_fn_c_try_run "$LINENO"; then :
++if ac_fn_c_try_link "$LINENO"; then :
+   { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+ $as_echo "yes" >&6; }; $as_echo "#define HAVE_TIMER_CREATE 1" >>confdefs.h
+ 
+@@ -13115,15 +13101,11 @@ else
+   { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+ $as_echo "no" >&6; }
+ fi
+-rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+-  conftest.$ac_objext conftest.beam conftest.$ac_ext
+-fi
+-
+-fi
+-rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+-  conftest.$ac_objext conftest.beam conftest.$ac_ext
++rm -f core conftest.err conftest.$ac_objext \
++    conftest$ac_exeext conftest.$ac_ext
+ fi
+-
++rm -f core conftest.err conftest.$ac_objext \
++    conftest$ac_exeext conftest.$ac_ext
+ 
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether stat() ignores a trailing slash" >&5
+ $as_echo_n "checking whether stat() ignores a trailing slash... " >&6; }
+diff --git a/src/configure.ac b/src/configure.ac
+index 58d5d8e18..98e1e2ed0 100644
+--- a/src/configure.ac
++++ b/src/configure.ac
+@@ -3805,12 +3805,10 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM(
+ 	AC_MSG_RESULT(no))
+ 
+ dnl Check for timer_create. It probably requires the 'rt' library.
+-dnl Run the program to find out if timer_create(CLOCK_MONOTONIC) actually
+-dnl works, on Solaris timer_create() exists but fails at runtime.
+ AC_MSG_CHECKING([for timer_create])
+ save_LIBS="$LIBS"
+ LIBS="$LIBS -lrt"
+-AC_RUN_IFELSE([AC_LANG_PROGRAM([
++AC_LINK_IFELSE([AC_LANG_PROGRAM([
+ #include<signal.h>
+ #include<time.h>
+ static void set_flag(union sigval sv) {}
+@@ -3821,12 +3819,11 @@ static void set_flag(union sigval sv) {}
+ 
+   action.sigev_notify = SIGEV_THREAD;
+   action.sigev_notify_function = set_flag;
+-  if (timer_create(CLOCK_MONOTONIC, &action, &timer_id) < 0)
+-    exit(1);  // cannot create a monotonic timer
++  timer_create(CLOCK_REALTIME, &action, &timer_id);
+   ])],
+   AC_MSG_RESULT(yes; with -lrt); AC_DEFINE(HAVE_TIMER_CREATE),
+   LIBS="$save_LIBS"
+-  AC_RUN_IFELSE([AC_LANG_PROGRAM([
++  AC_LINK_IFELSE([AC_LANG_PROGRAM([
+ #include<signal.h>
+ #include<time.h>
+ static void set_flag(union sigval sv) {}
+@@ -3837,8 +3834,7 @@ static void set_flag(union sigval sv) {}
+ 
+     action.sigev_notify = SIGEV_THREAD;
+     action.sigev_notify_function = set_flag;
+-    if (timer_create(CLOCK_MONOTONIC, &action, &timer_id) < 0)
+-      exit(1);  // cannot create a monotonic timer
++    timer_create(CLOCK_REALTIME, &action, &timer_id);
+     ])],
+     AC_MSG_RESULT(yes); AC_DEFINE(HAVE_TIMER_CREATE),
+     AC_MSG_RESULT(no)))
+-- 
+2.37.0
+

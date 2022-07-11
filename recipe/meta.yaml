@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/vim/vim/archive/v{{ version }}.tar.gz
   sha256: f9e8c16543d4ae3c25cec4628d08d1af3655f31ad3848a4f15ba7fb634fbac5f
+  patches:
+    - 0001-Revert-patch-9.0.0023-on-Solaris-timer_create-exists.patch  # [osx and arm64]
 
 build:
   number: 0
