@@ -25,6 +25,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-ar
   export vim_cv_getcwd_broken=no
   export vim_cv_stat_ignores_slash=no
   export vim_cv_memmove_handles_overlap=yes
+  export vim_cv_timer_create=yes
   export TERM_LIB='--with-tlib=ncurses -ltinfo'
 fi
 
