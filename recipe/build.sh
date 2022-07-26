@@ -10,11 +10,6 @@ export EXTRA_IPATHS="-I$PREFIX/include"
 # cf. https://github.com/vim/vim/blob/7b5f45be2197403d631b5a3d633f6a20afdf806e/src/auto/configure#L6215
 unset PERL
 
-if [ "$PY3K" -eq "1" ]; then
-  PYTHONINTERP="--enable-pythoninterp=no --enable-python3interp=yes"
-else
-  PYTHONINTERP="--enable-pythoninterp=yes --enable-python3interp=no"
-fi
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-arm64" ]]; then
   # Need to set these explicitly for osx-arm64 since they can't be checked
@@ -25,7 +20,11 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-ar
   export vim_cv_getcwd_broken=no
   export vim_cv_stat_ignores_slash=no
   export vim_cv_memmove_handles_overlap=yes
+  export vim_cv_timer_create=yes
   export TERM_LIB='--with-tlib=ncurses -ltinfo'
+
+  # Work around missing clockid_t due to https://github.com/vim/vim/pull/10549:
+  sed -i.bak 's,ifndef MAC_OS_X_VERSION_10_12,ifdef _DARWIN_FEATURE_CLOCK_GETTIME,' src/os_mac.h
 fi
 
 
@@ -36,8 +35,9 @@ fi
             --without-local-dir \
             --enable-gui=no     \
             --enable-cscope     \
-            $PYTHONINTERP       \
-             --enable-perlinterp=yes \
+            --enable-pythoninterp=no \
+            --enable-python3interp=yes \
+            --enable-perlinterp=yes \
             "$TERM_LIB" || { cat src/auto/config.log; exit 1; }
 
 make -j$CPU_COUNT
