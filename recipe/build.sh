@@ -22,6 +22,9 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-ar
   export vim_cv_memmove_handles_overlap=yes
   export vim_cv_timer_create=yes
   export TERM_LIB='--with-tlib=ncurses -ltinfo'
+
+  # Work around missing clockid_t due to https://github.com/vim/vim/pull/10549:
+  sed -i.bak s,MAC_OS_X_VERSION_10_12,ABCXXXXXXABC, src/os_mac.h
 fi
 
 
