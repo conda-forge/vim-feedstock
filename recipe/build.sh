@@ -10,11 +10,6 @@ export EXTRA_IPATHS="-I$PREFIX/include"
 # cf. https://github.com/vim/vim/blob/7b5f45be2197403d631b5a3d633f6a20afdf806e/src/auto/configure#L6215
 unset PERL
 
-if [ "$PY3K" -eq "1" ]; then
-  PYTHONINTERP="--enable-pythoninterp=no --enable-python3interp=yes"
-else
-  PYTHONINTERP="--enable-pythoninterp=yes --enable-python3interp=no"
-fi
 
 if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-arm64" ]]; then
   # Need to set these explicitly for osx-arm64 since they can't be checked
@@ -37,8 +32,9 @@ fi
             --without-local-dir \
             --enable-gui=no     \
             --enable-cscope     \
-            $PYTHONINTERP       \
-             --enable-perlinterp=yes \
+            --enable-pythoninterp=no \
+            --enable-python3interp=yes \
+            --enable-perlinterp=yes \
             "$TERM_LIB" || { cat src/auto/config.log; exit 1; }
 
 make -j$CPU_COUNT
