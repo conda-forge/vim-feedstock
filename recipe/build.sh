@@ -24,7 +24,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-ar
   export TERM_LIB='--with-tlib=ncurses -ltinfo'
 
   # Work around missing clockid_t due to https://github.com/vim/vim/pull/10549:
-  sed -i.bak 's,if !defined(MAC_OS_X_VERSION_10_12),ifdef _DARWIN_FEATURE_CLOCK_GETTIME,' src/os_mac.h
+  sed -i.bak 's,if !defined(MAC_OS_X_VERSION_10_12),if defined( _DARWIN_FEATURE_CLOCK_GETTIME),' src/os_mac.h
 fi
 
 
