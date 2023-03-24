@@ -29,7 +29,7 @@ fi
 
 
 ./configure --prefix=$PREFIX    \
-            --without-x         \
+            --with-compiledby='Conda-forge' \
             --without-gnome     \
             --without-tclsh     \
             --without-local-dir \
