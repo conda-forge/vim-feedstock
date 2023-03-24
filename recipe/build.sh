@@ -11,7 +11,7 @@ export EXTRA_IPATHS="-I$PREFIX/include"
 unset PERL
 
 
-if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-arm64" ]]; then
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "$target_platform" == "osx-arm64" ]]; then
   # Need to set these explicitly for osx-arm64 since they can't be checked
   # automatically when cross-compiling.
   export vim_cv_toupper_broken=no
@@ -22,14 +22,15 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == "1" && "${target_platform}" == "osx-ar
   export vim_cv_memmove_handles_overlap=yes
   export vim_cv_timer_create=yes
   export TERM_LIB='--with-tlib=ncurses -ltinfo'
-
-  # Work around missing clockid_t due to https://github.com/vim/vim/pull/10549:
-  sed -i.bak 's,ifndef MAC_OS_X_VERSION_10_12,ifdef _DARWIN_FEATURE_CLOCK_GETTIME,' src/os_mac.h
 fi
 
+if [[ "$target_platform" == osx-* ]]; then
+  # Work around missing clockid_t due to https://github.com/vim/vim/pull/10549:
+  sed -i.bak 's,if !defined(MAC_OS_X_VERSION_10_12),if defined( _DARWIN_FEATURE_CLOCK_GETTIME),' src/os_mac.h
+fi
 
 ./configure --prefix=$PREFIX    \
-            --without-x         \
+            --with-compiledby='Conda-forge' \
             --without-gnome     \
             --without-tclsh     \
             --without-local-dir \
