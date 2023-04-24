@@ -10,3 +10,7 @@ provider:
 test_on_native_only: true
 conda_build:
   pkg_format: '2'
+bot:
+  automerge: true
+  version_updates:
+    random_fraction_to_keep: 0.02  # keeps 2% of versions at random
