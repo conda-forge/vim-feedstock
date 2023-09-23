@@ -1,5 +1,11 @@
+bot:
+  automerge: true
+  version_updates:
+    random_fraction_to_keep: 0.02
 build_platform:
   osx_arm64: osx_64
+conda_build:
+  pkg_format: '2'
 conda_forge_output_validation: true
 github:
   branch_name: main
@@ -8,9 +14,3 @@ provider:
   linux_aarch64: azure
   linux_ppc64le: azure
 test_on_native_only: true
-conda_build:
-  pkg_format: '2'
-bot:
-  automerge: true
-  version_updates:
-    random_fraction_to_keep: 0.02  # keeps 2% of versions at random
