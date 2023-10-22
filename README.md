@@ -374,6 +374,3 @@ Feedstock Maintainers
 * [@matthiasdiener](https://github.com/matthiasdiener/)
 * [@scopatz](https://github.com/scopatz/)
 
-
-<!-- dummy commit to enable rerendering -->
-
