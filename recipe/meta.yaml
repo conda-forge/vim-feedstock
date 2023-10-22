@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/vim/vim/archive/v{{ version }}.tar.gz
-  sha256: 742735ceb03e19660029393fd9429b0feaed6cdbe98d06005908307585d6f053
+  sha256: 5b20c2fed3844ffbd2bef51d2e6de8e5c07f9c3cfb84e2679a729b69f178f8d6
 
 build:
   number: 0
