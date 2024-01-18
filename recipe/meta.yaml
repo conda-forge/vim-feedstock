@@ -1,5 +1,5 @@
 {% set name = "vim" %}
-{% set version = "9.0.2069" %}
+{% set version = "9.1.0041" %}
 
 package:
   name: {{ name|lower }}
