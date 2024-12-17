@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/vim/vim/archive/v{{ version }}.tar.gz
   sha256: 556fc5db944273aae0d7b529ef744562e8391bd66a32f332a9856d5c719a9d1a
+  patches:
+    - 0001-fix-cross-compile-of-timer_create-without-lrt.patch
 
 build:
   number: 0
