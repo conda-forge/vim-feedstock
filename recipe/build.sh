@@ -41,5 +41,10 @@ fi
             --enable-perlinterp=yes \
             "$TERM_LIB" || { cat src/auto/config.log; exit 1; }
 
+# TODO Remove
+echo "!!! Dump config.log begin"
+cat src/auto/config.log
+echo "!!! Dump config.log end"
+
 make -j$CPU_COUNT
 make install
