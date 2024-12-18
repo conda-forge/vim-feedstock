@@ -1,5 +1,5 @@
 {% set name = "vim" %}
-{% set version = "9.1.0938" %}
+{% set version = "9.1.0946" %}
 
 package:
   name: {{ name|lower }}
@@ -7,9 +7,7 @@ package:
 
 source:
   url: https://github.com/vim/vim/archive/v{{ version }}.tar.gz
-  sha256: 556fc5db944273aae0d7b529ef744562e8391bd66a32f332a9856d5c719a9d1a
-  patches:
-    - 0001-fix-cross-compile-of-timer_create-without-lrt.patch
+  sha256: 87dc904d1ab198ad26733c6683e7ae1b10276d40a20266031646436d3082f421
 
 build:
   number: 0
