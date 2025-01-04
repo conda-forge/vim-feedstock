@@ -370,6 +370,7 @@ Feedstock Maintainers
 =====================
 
 * [@asford](https://github.com/asford/)
+* [@blmaier](https://github.com/blmaier/)
 * [@mariusvniekerk](https://github.com/mariusvniekerk/)
 * [@matthiasdiener](https://github.com/matthiasdiener/)
 * [@scopatz](https://github.com/scopatz/)
