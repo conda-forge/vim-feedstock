@@ -30,11 +30,17 @@ if [[ "$target_platform" == osx-* ]]; then
   sed -i.bak 's,if !defined(MAC_OS_X_VERSION_10_12),if defined( _DARWIN_FEATURE_CLOCK_GETTIME),' src/os_mac.h
 fi
 
+with_x=
+if [[ "$target_platform" == linux-* ]]; then
+  with_x=--with-x
+fi
+
 ./configure --prefix=$PREFIX    \
             --with-compiledby='Conda-forge' \
             --without-gnome     \
             --without-tclsh     \
             --without-local-dir \
+            $with_x             \
             --enable-gui=no     \
             --enable-cscope     \
             --enable-pythoninterp=no \

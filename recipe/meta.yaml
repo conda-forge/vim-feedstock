@@ -28,6 +28,7 @@ requirements:
     - gettext
     - xorg-libx11     # [linux]
     - xorg-libxt      # [linux]
+    - xorg-xorgproto  # [linux]
   run:
     - python
     - perl     # [not win]
@@ -35,6 +36,7 @@ requirements:
     - gettext
     - xorg-libx11     # [linux]
     - xorg-libxt      # [linux]
+    - xorg-xorgproto  # [linux]
 
 test:
   commands:
