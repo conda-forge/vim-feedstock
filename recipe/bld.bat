@@ -34,6 +34,7 @@ copy *.exe %LIBRARY_BIN%
 copy xxd\\*.exe %LIBRARY_BIN%
 copy tee\\*.exe %LIBRARY_BIN%
 
+:: Delete symlink that is unsupported on Windows
+del ..\\runtime\\doc\\pi_netrw.txt
 xcopy ..\\runtime %LIBRARY_BIN% /Y /E /V /I /H /R /Q
 if errorlevel 1 exit 1
-
