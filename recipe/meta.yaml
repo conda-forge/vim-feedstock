@@ -1,5 +1,5 @@
 {% set name = "vim" %}
-{% set version = "9.1.1214" %}
+{% set version = "9.1.1397" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/vim/vim/archive/v{{ version }}.tar.gz
-  sha256: e087423f3d5348ce0284c97632a81edd28aefd0b2a25061e1a61a94b1d10cbae
+  sha256: 57b80733210c3b8f17c817f50bc64bcec264bc3239f72ed76c76433cc62f2291
 
 build:
   number: 0
@@ -21,19 +21,19 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - make
+    - gettext-tools
   host:
     - python
     - perl     # [not win]
     - ncurses  # [not win]
-    - gettext
     - xorg-libx11     # [linux]
     - xorg-libxt      # [linux]
     - xorg-xorgproto  # [linux]
+    - libintl-devel  # [not linux]
   run:
     - python
     - perl     # [not win]
     - ncurses  # [not win]
-    - gettext
     - xorg-libx11     # [linux]
     - xorg-libxt      # [linux]
     - xorg-xorgproto  # [linux]
