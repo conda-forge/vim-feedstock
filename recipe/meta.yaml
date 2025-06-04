@@ -21,19 +21,19 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - make
+    - gettext-tools
   host:
     - python
     - perl     # [not win]
     - ncurses  # [not win]
-    - gettext
     - xorg-libx11     # [linux]
     - xorg-libxt      # [linux]
     - xorg-xorgproto  # [linux]
+    - libintl-devel  # [not linux]
   run:
     - python
     - perl     # [not win]
     - ncurses  # [not win]
-    - gettext
     - xorg-libx11     # [linux]
     - xorg-libxt      # [linux]
     - xorg-xorgproto  # [linux]
