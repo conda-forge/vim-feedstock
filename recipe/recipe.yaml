@@ -55,9 +55,9 @@ requirements:
 tests:
   - script:
       - vim --version
-      - if: win
-        then: if not exist %LIBRARY_BIN%/vim.exe exit 1
-        else: test -f $PREFIX/bin/vim
+  - package_contents:
+      bin:
+        - vim
 
 about:
   license: Vim
