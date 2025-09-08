@@ -1,0 +1,77 @@
+schema_version: 1
+
+context:
+  name: vim
+  version: 9.1.1627
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/vim/vim/archive/v${{ version }}.tar.gz
+  sha256: f7c4c4bdc3a0b26c13e86f37eda7cd62618a082a2623df1d83d9d0aae98ac241
+
+build:
+  number: 2
+  skip: win and python_impl == 'pypy'
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+    - make
+    - gettext-tools
+  host:
+    - python
+    - if: not win
+      then:
+        - perl
+        - ncurses
+    - if: linux
+      then:
+        - xorg-libx11
+        - xorg-libxt
+        - xorg-xorgproto
+    - if: not linux
+      then: libintl-devel
+  run:
+    - python
+    - if: not win
+      then:
+        - perl
+        - ncurses
+    - if: linux
+      then:
+        - xorg-libx11
+        - xorg-libxt
+        - xorg-xorgproto
+
+tests:
+  - script:
+      - vim --version
+  - package_contents:
+      bin:
+        - vim
+
+about:
+  license: Vim
+  # vi(m) is licensed as charity-ware
+  license_file: runtime/doc/uganda.txt
+  summary: Vim is a greatly improved version of the good old UNIX editor Vi
+  homepage: https://www.vim.org/
+  repository: https://github.com/vim/vim
+  documentation: https://www.vim.org/docs.php
+
+extra:
+  recipe-maintainers:
+    - blmaier
+    - mariusvniekerk
+    - scopatz
+    - asford
+    - matthiasdiener
