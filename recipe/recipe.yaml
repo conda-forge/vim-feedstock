@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: vim
-  version: 9.1.1627
+  version: "9.1.1858"
 
 package:
   name: ${{ name|lower }}
@@ -10,10 +10,10 @@ package:
 
 source:
   url: https://github.com/vim/vim/archive/v${{ version }}.tar.gz
-  sha256: f7c4c4bdc3a0b26c13e86f37eda7cd62618a082a2623df1d83d9d0aae98ac241
+  sha256: 43166b07a24ffa74533656cabce5433b9a5eaa96400a0b54ac49c44ce21e41e1
 
 build:
-  number: 2
+  number: 0
   skip: win and python_impl == 'pypy'
 
 requirements:
@@ -38,8 +38,7 @@ requirements:
         - xorg-libx11
         - xorg-libxt
         - xorg-xorgproto
-    - if: not linux
-      then: libintl-devel
+      else: libintl-devel
   run:
     - python
     - if: not win
