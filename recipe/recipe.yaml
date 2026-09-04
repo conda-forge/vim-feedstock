@@ -13,7 +13,7 @@ source:
   sha256: 3d0990c0eb925a5c10734133ce4f9f4799490d6645beda2bf00f8a3eef062d2e
 
 build:
-  number: 0
+  number: 1
   skip: win and python_impl == 'pypy'
 
 requirements:
