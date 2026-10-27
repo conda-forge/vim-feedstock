@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: vim
-  version: "9.2.1054"
+  version: "9.2.1252"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/vim/vim/archive/v${{ version }}.tar.gz
-  sha256: b0ad7bba02f4de81cf3ecbf23ef1ef3f69e9e9029203d6c9f7858e18d0669470
+  sha256: 9e62bb4226caedf676eb70b3ba4d32b671135096c57a8ebbd63ffd423ebc5e01
 
 build:
   number: 0
