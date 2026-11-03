@@ -33,6 +33,9 @@ requirements:
       then:
         - perl
         - ncurses
+    - if: osx
+      then:
+        - libsodium
     - if: linux
       then:
         - xorg-libx11

@@ -35,6 +35,13 @@ if [[ "$target_platform" == linux-* ]]; then
   with_x=--with-x
 fi
 
+if [[ "$target_platform" == osx-* ]]; then
+  # Keep Homebrew's pkg-config files out of the search, so that pixman and
+  # cairo are not linked from the build machine.
+  unset PKG_CONFIG_PATH
+  export PKG_CONFIG_LIBDIR="$PREFIX/lib/pkgconfig"
+fi
+
 ./configure --prefix=$PREFIX    \
             --with-compiledby='Conda-forge' \
             --without-gnome     \
@@ -50,3 +57,11 @@ fi
 
 make -j$CPU_COUNT
 make install
+
+if [[ "$target_platform" == osx-* ]]; then
+  # Fail the build if the binary links against Homebrew on the build machine.
+  if otool -L "$PREFIX/bin/vim" | grep -q /opt/homebrew; then
+    echo "vim links against /opt/homebrew"
+    exit 1
+  fi
+fi
